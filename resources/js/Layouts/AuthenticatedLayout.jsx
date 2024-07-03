@@ -5,8 +5,54 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
 
+// Icons
+import AllInboxIcon from '@mui/icons-material/AllInbox';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Sidebar from '@/Components/Sidebar';
+
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+
+    const sidebarItems = [
+        { 
+            icon: DashboardIcon, 
+            label: 'Dashboard', 
+            subItems: 
+            [
+                'Charts', 
+                'Graph', 
+                'Year Report', 
+                'Data List', 
+                'Create Customer', 
+            ] 
+        },
+        { 
+            icon: AllInboxIcon, 
+            label: 'Master', 
+            subItems: 
+            [
+                'Vendor', 
+                'Customer', 
+                'Item', 
+                'Price List', 
+                'Warehouse', 
+                'User'
+            ] 
+        },
+        {
+            icon: AttachMoneyIcon,
+            label: 'Sale',
+            subItems:
+                [
+                    'Sale Invoices',
+                    'Sale Order',
+                    'Delivery Challan',
+                    'Sale Return Credit/Note',
+                    'General Voucher'
+                ]
+        },
+    ];
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -22,7 +68,7 @@ export default function Authenticated({ user, header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
+                                    Billing Website
                                 </NavLink>
                             </div>
                         </div>
@@ -113,13 +159,22 @@ export default function Authenticated({ user, header, children }) {
                 </div>
             </nav>
 
-            {header && (
-                <header className="bg-white shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
-                </header>
-            )}
+            <div className="flex h-screen">
+                <Sidebar items={sidebarItems} />
+                <div className="flex flex-col flex-grow">
+                    {header && (
+                        <header className="bg-white shadow">
+                            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                                {header}
+                            </div>
+                        </header>
+                    )}
+                    <main className="flex-grow">
+                        {children}
+                    </main>
+                </div>
+            </div>
 
-            <main>{children}</main>
         </div>
     );
 }
