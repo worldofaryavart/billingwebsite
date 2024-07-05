@@ -10,9 +10,9 @@ const Sidebar = ({ items }) => {
     };
 
     return (
-        <div className="relative flex">
+        <div className="relative flex border border-teal-50">
             {/* Main Sidebar */}
-            <div className="w-16 h-screen bg-gray-300 text-gray-500 flex flex-col items-center py-4 transition-all duration-300">
+            <div className="w-16 h-screen bg-teal-400 text-gray-500 flex flex-col items-center py-4 transition-all duration-300">
                 {items.map((item, index) => (
                     <Tooltip key={index} title={item.label}>
                         <IconButton
@@ -32,7 +32,7 @@ const Sidebar = ({ items }) => {
             {/* Sub-sidebar */}
             {activeIndex !== null && (
                 <div
-                    className={`absolute top-0 left-16 bg-gray-700 text-white p-4 transition-transform duration-500 ${
+                    className={`absolute top-0 left-16 bg-teal-700 text-white p-4 transition-transform duration-500 ${
                         activeIndex !== null ? 'translate-x-0' : '-translate-x-full'
                     }`}
                     style={{ width: '250px', height: '100vh' }}
