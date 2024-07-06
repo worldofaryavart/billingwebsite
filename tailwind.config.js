@@ -15,6 +15,9 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            transitionProperty: {
+                'colors':'background-color, border-color, fill, stroke',
+            }
         },
     },
 

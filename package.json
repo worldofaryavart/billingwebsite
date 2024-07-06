@@ -6,7 +6,6 @@
         "build": "vite build && vite build --ssr"
     },
     "devDependencies": {
-        "@headlessui/react": "^2.0.0",
         "@inertiajs/react": "^1.0.0",
         "@tailwindcss/forms": "^0.5.3",
         "@vitejs/plugin-react": "^4.2.0",
@@ -23,10 +22,12 @@
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.5",
         "@fontsource/roboto": "^5.0.13",
+        "@headlessui/react": "^2.1.2",
         "@inertiajs/inertia": "^0.11.1",
         "@mui/icons-material": "^5.15.21",
         "@mui/material": "^5.15.21",
         "@mui/system": "^5.16.0",
+        "clsx": "^2.1.1",
         "lucide-react": "^0.400.0",
         "react-router-dom": "^6.24.1",
         "recharts": "^2.12.7"
